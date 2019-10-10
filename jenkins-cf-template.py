@@ -110,7 +110,7 @@ t.add_resource(IAMPolicy(
                 Resource=["*"])
         ]
     ),
-
+    Roles=[Ref("Role")]
 ))
 
 t.add_resource(ec2.Instance(
