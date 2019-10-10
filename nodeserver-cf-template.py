@@ -31,7 +31,7 @@ from awacs.aws import (
 from awacs.sts import AssumeRole
 
 ApplicationName = "nodeserver"
-ApplicationPort = "8080"
+ApplicationPort = "3000"
 GithubAccount = "mailman-2097"
 GithubAnsibleURL = "https://github.com/{}/ansible".format(GithubAccount)
 
