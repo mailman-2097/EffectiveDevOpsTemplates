@@ -1,4 +1,4 @@
-"""Chapter 05 Jenkins CICD."""
+"""Chapter 05 Jenkins CICD. Added S3 policy for integration of Jenkins with S3 for Codepipeline"""
 from ipaddress import ip_network
 
 from ipify import get_ip
@@ -97,6 +97,20 @@ t.add_resource(InstanceProfile(
     "InstanceProfile",
     Path="/",
     Roles=[Ref("Role")]
+))
+
+t.add_resource(IAMPolicy(
+    "Policy",
+    PolicyName="AllowS3",
+    PolicyDocument=Policy(
+        Statement=[
+            Statement(
+                Effect=Allow,
+                Action=[Action("s3", "*")],
+                Resource=["*"])
+        ]
+    ),
+
 ))
 
 t.add_resource(ec2.Instance(
